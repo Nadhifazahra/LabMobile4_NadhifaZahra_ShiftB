@@ -1,7 +1,7 @@
 # Pertemuan 4 Toko Kita
 
 Nadhifa Zahra Kurniawan
-Shift B
+\n Shift B
 
 ## Registrasi Page
 <img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300">
