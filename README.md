@@ -1,16 +1,25 @@
-# pertemuan4
+# Pertemuan 4 Toko Kita
 
-A new Flutter project.
+Nadhifa Zahra Kurniawan
+Shift B
 
-## Getting Started
+## Registrasi Page
+<img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300">
 
-This project is a starting point for a Flutter application.
+## Login Page
+<img src="https://github.com/user-attachments/assets/3b29147a-0e22-42d9-8253-f4fa10e38cf7" width="300">
 
-A few resources to get you started if this is your first Flutter project:
+## Produk Page
+<img src="https://github.com/user-attachments/assets/21cfbd54-be82-4901-868b-726df58a1c81" width="300">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Tambah Produk
+<img src="https://github.com/user-attachments/assets/99c0f16d-9af9-4b1b-ac8f-61e8deacdda2" width="300">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Detail Produk
+<img src="https://github.com/user-attachments/assets/94504faf-b63b-4dcf-85dd-9be8593b8c6d" width="300">
+
+## Ubah Produk
+<img src="https://github.com/user-attachments/assets/398ce167-ca4f-41cf-9a34-3b4c89af00af" width="300">
+
+## Hapus Produk
+<img src="https://github.com/user-attachments/assets/b71744c0-3382-42c7-b672-f6d714c30415" width="300">
