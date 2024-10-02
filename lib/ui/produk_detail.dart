@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pertemuan4/bloc/produk_bloc.dart';
 import 'package:pertemuan4/model/produk.dart';
 import 'package:pertemuan4/ui/produk_form.dart';
+import 'package:pertemuan4/ui/produk_page.dart';
+import 'package:pertemuan4/widget/warning_dialog.dart';
 
 class ProdukDetail extends StatefulWidget {
   Produk? produk;
@@ -16,7 +19,7 @@ class _ProdukDetailState extends State<ProdukDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detail Produk'),
+        title: const Text('Detail Produk Nadhifa'),
       ),
       body: Center(
         child: Column(
@@ -66,19 +69,30 @@ class _ProdukDetailState extends State<ProdukDetail> {
     AlertDialog alertDialog = AlertDialog(
       content: const Text("Yakin ingin menghapus data ini?"),
       actions: [
-        //tombol hapus
+//tombol hapus
         OutlinedButton(
           child: const Text("Ya"),
-          onPressed: () {},
+          onPressed: () {
+            ProdukBloc.deleteProduk(id: int.parse(widget.produk!.id!)).then(
+                (value) => {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ProdukPage()))
+                    }, onError: (error) {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => const WarningDialog(
+                        description: "Hapus gagal, silahkan coba lagi",
+                      ));
+            });
+          },
         ),
-        //tombol batal
+//tombol batal
         OutlinedButton(
           child: const Text("Batal"),
           onPressed: () => Navigator.pop(context),
         )
       ],
     );
-
     showDialog(builder: (context) => alertDialog, context: context);
   }
 }

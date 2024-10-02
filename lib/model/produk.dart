@@ -1,5 +1,5 @@
 class Produk {
-  int? id;
+  String? id;
   String? kodeProduk;
   String? namaProduk;
   int? hargaProduk;
