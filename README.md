@@ -4,32 +4,35 @@ Nadhifa Zahra Kurniawan
 <br>Shift B
 
 ## Registrasi Page
-a. Tampilan form registrasi <br>
-<img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300">
+
+**a. Tampilan Form Registrasi**  
+<img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300">  
 <img src="https://github.com/user-attachments/assets/836f897c-977b-4c61-accd-db261a6de3e1" width="300"><br>
-Sebelum login perlu melakukan registrasi terlebih dahulu.
+Sebelum melakukan login, pengguna harus melakukan registrasi terlebih dahulu.
 
-b. Registrasi berhasil <br>
-<img src="https://github.com/user-attachments/assets/75173947-8799-43a4-b766-d1a45749bc67" width="300">
-Ketika registrasi berhasil, akan menampilkan pop up seperti gambar di atas. Pop up ini didatap dari kode berikut:<br>
- RegistrasiBloc.registrasi(
-            nama: _namaTextboxController.text,
-            email: _emailTextboxController.text,
-            password: _passwordTextboxController.text)
-        .then((value) {
-      showDialog(
-          context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) => SuccessDialog(
-                description: "Registrasi berhasil, silahkan login",
-                okClick: () {
-                  Navigator.pop(context);
-                },
-              ));
-    },
-<br>
+**b. Registrasi Berhasil**  
+<img src="https://github.com/user-attachments/assets/75173947-8799-43a4-b766-d1a45749bc67" width="300"><br>
+Jika registrasi berhasil, akan muncul pop-up seperti gambar di atas. Pop-up ini dihasilkan oleh kode berikut:  
 
-c. Registrasi gagal
+```dart
+RegistrasiBloc.registrasi(
+  nama: _namaTextboxController.text,
+  email: _emailTextboxController.text,
+  password: _passwordTextboxController.text
+).then((value) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) => SuccessDialog(
+      description: "Registrasi berhasil, silahkan login",
+      okClick: () {
+        Navigator.pop(context);
+      },
+    )
+  );
+});
+```
+
 
 ## Login Page
 <img src="https://github.com/user-attachments/assets/3b29147a-0e22-42d9-8253-f4fa10e38cf7" width="300">
