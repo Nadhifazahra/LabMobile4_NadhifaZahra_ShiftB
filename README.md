@@ -193,9 +193,9 @@ else {
 
 
 ## Produk Page
-<img src="https://github.com/user-attachments/assets/d9592233-2bca-4bf5-8cda-4ef0c80449b4" width="300">
-Setelah login berhasil, akan menampilkan Produk Page yang masih kosong. Pada halaman ini terdapat button + untuk menambahkan produk dan sidebar untuk logout. Tampilan produk page didapat dari kode berikut
-``` dart
+<img src="https://github.com/user-attachments/assets/d9592233-2bca-4bf5-8cda-4ef0c80449b4" width="300"><br>
+Setelah login berhasil, akan menampilkan Produk Page yang masih kosong. Pada halaman ini terdapat button + untuk menambahkan produk dan sidebar untuk logout. Tampilan produk page didapat dari kode berikut:
+```
 class _ProdukPageState extends State<ProdukPage> {
   @override
   Widget build(BuildContext context) {
@@ -252,8 +252,35 @@ class _ProdukPageState extends State<ProdukPage> {
 
 ## Tambah Produk
 <img src="https://github.com/user-attachments/assets/99c0f16d-9af9-4b1b-ac8f-61e8deacdda2" width="300">
-<img src="https://github.com/user-attachments/assets/998a7369-60c1-43ba-a821-a1b92961f345" width="300">
-<img src="https://github.com/user-attachments/assets/c975049a-546e-4b84-b510-6ad731f3e445" width="300">
+<img src="https://github.com/user-attachments/assets/998a7369-60c1-43ba-a821-a1b92961f345" width="300"><br>
+Button + di halaman Produk Page akan mengarahkan ke halaman form tambah produk. Dalam form ini terdapat kolom kode produk, nama produk, dan harga yang dapat dimasukkan oleh user. Tampilan form tambah data didapat dari kode berikut.
+``` dart
+ Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(judul)),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                _kodeProdukTextField(),
+                _namaProdukTextField(),
+                _hargaProdukTextField(),
+                _buttonSubmit()
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+  ```
+
+
+<img src="https://github.com/user-attachments/assets/c975049a-546e-4b84-b510-6ad731f3e445" width="300"><br>
+
 
 ## Detail Produk
 <img src="https://github.com/user-attachments/assets/ed900d3a-7c78-4f6c-a05c-cdb663023a0a" width="300">
