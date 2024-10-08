@@ -31,7 +31,7 @@ RegistrasiBloc.registrasi(
   );
 });
 ```
-c. Registrasi Gagal
+c. Registrasi Gagal<br>
 <img src="https://github.com/user-attachments/assets/cd5a107b-5386-459f-ab66-3d7d1ba8d12d" width="300"><br>
 Jika inputan form registrasi tidak sesuai, maka akan muncul peringatan seperti pada gambar. Peringatan tersebut didapat dari widget sebagai berikut:
 ```dart
