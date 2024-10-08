@@ -140,7 +140,10 @@ class _ProdukFormState extends State<ProdukForm> {
     Produk createProduk = Produk(id: null);
     createProduk.kodeProduk = _kodeProdukTextboxController.text;
     createProduk.namaProduk = _namaProdukTextboxController.text;
-    createProduk.hargaProduk = int.parse(_hargaProdukTextboxController.text);
+    // createProduk.hargaProduk = int.parse(_hargaProdukTextboxController.text);
+    createProduk.hargaProduk =
+        int.tryParse(_hargaProdukTextboxController.text) ?? 0;
+
     ProdukBloc.addProduk(produk: createProduk).then((value) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => const ProdukPage()));
@@ -163,7 +166,10 @@ class _ProdukFormState extends State<ProdukForm> {
     Produk updateProduk = Produk(id: widget.produk!.id!);
     updateProduk.kodeProduk = _kodeProdukTextboxController.text;
     updateProduk.namaProduk = _namaProdukTextboxController.text;
-    updateProduk.hargaProduk = int.parse(_hargaProdukTextboxController.text);
+    // updateProduk.hargaProduk = int.parse(_hargaProdukTextboxController.text);
+    updateProduk.hargaProduk =
+        int.tryParse(_hargaProdukTextboxController.text) ?? 0;
+
     ProdukBloc.updateProduk(produk: updateProduk).then((value) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => const ProdukPage()));
