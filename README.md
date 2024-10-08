@@ -4,7 +4,7 @@ Nadhifa Zahra Kurniawan
 <br>Shift B
 
 ## Registrasi Page
-a. Tampilan form registrasi
+a. Tampilan form registrasi <br>
 <img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300">
 <img src="https://github.com/user-attachments/assets/836f897c-977b-4c61-accd-db261a6de3e1" width="300">
 
