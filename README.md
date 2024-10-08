@@ -7,7 +7,34 @@ Nadhifa Zahra Kurniawan
 
 **a. Tampilan Form Registrasi**  
 <img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300"> <img src="https://github.com/user-attachments/assets/836f897c-977b-4c61-accd-db261a6de3e1" width="300"><br>
-Sebelum melakukan login, pengguna harus melakukan registrasi terlebih dahulu.
+Sebelum melakukan login, pengguna harus melakukan registrasi terlebih dahulu. Tampilan registrasi didapat dari kode berikut:
+```
+Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Registrasi Nadhifa"),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _namaTextField(),
+                _emailTextField(),
+                _passwordTextField(),
+                _passwordKonfirmasiTextField(),
+                _buttonRegistrasi()
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+```
 
 **b. Registrasi Berhasil**  
 <img src="https://github.com/user-attachments/assets/75173947-8799-43a4-b766-d1a45749bc67" width="300"><br>
@@ -107,8 +134,63 @@ Jika inputan form registrasi tidak sesuai, maka akan muncul peringatan seperti p
 ```
 
 ## Login Page
+a. Tampilan form login<br>
 <img src="https://github.com/user-attachments/assets/3b29147a-0e22-42d9-8253-f4fa10e38cf7" width="300">
-<img src="https://github.com/user-attachments/assets/b69835b2-bab2-4a8e-9f7d-d24791aab2b8" width="300">
+<img src="https://github.com/user-attachments/assets/b69835b2-bab2-4a8e-9f7d-d24791aab2b8" width="300"><br>
+Setelah registrasi berhasil, button 'OK' di pop up registrasi sukses akan mengarahkan ke login page. Login page berisi form dengan kolom email dan password. Jika login berhasil, button 'Login' akan langsung mengarahkan ke Produk Page. Tampilan login didapat dari kode berikut:
+```
+ Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login Nadhifa'),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                _emailTextField(),
+                _passwordTextField(),
+                _buttonLogin(),
+                const SizedBox(
+                  height: 30,
+                ),
+                _menuRegistrasi()
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+```
+
+b. Login gagal <br>
+<img src="https://github.com/user-attachments/assets/c3a756e8-ce96-425d-9e3d-4b7889f5387a" width="300"><br>
+Jika email atau password salah, maka akan menampilkan pop up peringatan login gagal. Pop up ini dihasilkan dari kode berikut:
+```
+else {
+        showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) => const WarningDialog(
+                  description: "Login gagal, silahkan coba lagi",
+                ));
+      }
+    }, onError: (error) {
+      print(error);
+      showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) => const WarningDialog(
+                description: "Login gagal, silahkan coba lagi",
+              ));
+    });
+  }
+```
+
 
 ## Produk Page
 <img src="https://github.com/user-attachments/assets/d9592233-2bca-4bf5-8cda-4ef0c80449b4" width="300">
