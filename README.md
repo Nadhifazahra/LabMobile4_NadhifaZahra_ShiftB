@@ -6,8 +6,7 @@ Nadhifa Zahra Kurniawan
 ## Registrasi Page
 
 **a. Tampilan Form Registrasi**  
-<img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300">  
-<img src="https://github.com/user-attachments/assets/836f897c-977b-4c61-accd-db261a6de3e1" width="300"><br>
+<img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300"> <img src="https://github.com/user-attachments/assets/836f897c-977b-4c61-accd-db261a6de3e1" width="300"><br>
 Sebelum melakukan login, pengguna harus melakukan registrasi terlebih dahulu.
 
 **b. Registrasi Berhasil**  
@@ -32,7 +31,80 @@ RegistrasiBloc.registrasi(
   );
 });
 ```
+c. Registrasi Gagal
+<img src="https://github.com/user-attachments/assets/cd5a107b-5386-459f-ab66-3d7d1ba8d12d" width="300"><br>
+Jika inputan form registrasi tidak sesuai, maka akan muncul peringatan seperti pada gambar. Peringatan tersebut didapat dari widget sebagai berikut:
+```dart
+ Widget _namaTextField() {
+    return TextFormField(
+      decoration: const InputDecoration(labelText: "Nama"),
+      keyboardType: TextInputType.text,
+      controller: _namaTextboxController,
+      validator: (value) {
+        if (value!.length < 3) {
+          return "Nama harus diisi minimal 3 karakter";
+        }
+        return null;
+      },
+    );
+  }
 
+  //Membuat Textbox email
+  Widget _emailTextField() {
+    return TextFormField(
+      decoration: const InputDecoration(labelText: "Email"),
+      keyboardType: TextInputType.emailAddress,
+      controller: _emailTextboxController,
+      validator: (value) {
+        //validasi harus diisi
+        if (value!.isEmpty) {
+          return 'Email harus diisi';
+        }
+        //validasi email
+        Pattern pattern =
+            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0 - 9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zAZ]{2,}))$';
+        RegExp regex = RegExp(pattern.toString());
+        if (!regex.hasMatch(value)) {
+          return "Email tidak valid";
+        }
+        return null;
+      },
+    );
+  }
+
+  //Membuat Textbox password
+  Widget _passwordTextField() {
+    return TextFormField(
+      decoration: const InputDecoration(labelText: "Password"),
+      keyboardType: TextInputType.text,
+      obscureText: true,
+      controller: _passwordTextboxController,
+      validator: (value) {
+        //jika karakter yang dimasukkan kurang dari 6 karakter
+        if (value!.length < 6) {
+          return "Password harus diisi minimal 6 karakter";
+        }
+        return null;
+      },
+    );
+  }
+
+  //membuat textbox Konfirmasi Password
+  Widget _passwordKonfirmasiTextField() {
+    return TextFormField(
+      decoration: const InputDecoration(labelText: "Konfirmasi Password"),
+      keyboardType: TextInputType.text,
+      obscureText: true,
+      validator: (value) {
+        //jika inputan tidak sama dengan password
+        if (value != _passwordTextboxController.text) {
+          return "Konfirmasi Password tidak sama";
+        }
+        return null;
+      },
+    );
+  }
+```
 
 ## Login Page
 <img src="https://github.com/user-attachments/assets/3b29147a-0e22-42d9-8253-f4fa10e38cf7" width="300">
