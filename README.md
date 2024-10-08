@@ -251,10 +251,12 @@ class _ProdukPageState extends State<ProdukPage> {
 
 
 ## Tambah Produk
+a. Tampilan form tambah produk <br>
 <img src="https://github.com/user-attachments/assets/99c0f16d-9af9-4b1b-ac8f-61e8deacdda2" width="300">
 <img src="https://github.com/user-attachments/assets/998a7369-60c1-43ba-a821-a1b92961f345" width="300"><br>
 Button + di halaman Produk Page akan mengarahkan ke halaman form tambah produk. Dalam form ini terdapat kolom kode produk, nama produk, dan harga yang dapat dimasukkan oleh user. Tampilan form tambah data didapat dari kode berikut.
-``` dart
+
+```
  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(judul)),
@@ -276,18 +278,230 @@ Button + di halaman Produk Page akan mengarahkan ke halaman form tambah produk. 
       ),
     );
   }
-  ```
+```
 
-
+b. Hasil tambah produk
 <img src="https://github.com/user-attachments/assets/c975049a-546e-4b84-b510-6ad731f3e445" width="300"><br>
+Button simpan di halaman tambah produk akan menyimpan nilai nilai yang sudah diinput oleh user ke database dan kemudian menampilkan halaman Produk Page dengan list produk yang sudah user tambahkan. Tampilan ini didapat dari kode berikut:
+
+```
+body: FutureBuilder<List>(
+        future: ProdukBloc.getProduks(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) print(snapshot.error);
+          return snapshot.hasData
+              ? ListProduk(
+                  list: snapshot.data,
+                )
+              : const Center(
+                  child: CircularProgressIndicator(),
+                );
+        },
+      ),
+    );
+  }
+}
+
+class ListProduk extends StatelessWidget {
+  final List? list;
+  const ListProduk({Key? key, this.list}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: list == null ? 0 : list!.length,
+        itemBuilder: (context, i) {
+          return ItemProduk(
+            produk: list![i],
+          );
+        });
+  }
+}
+
+class ItemProduk extends StatelessWidget {
+  final Produk produk;
+  const ItemProduk({Key? key, required this.produk}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProdukDetail(
+                      produk: produk,
+                    )));
+      },
+      child: Card(
+        child: ListTile(
+          title: Text(produk.namaProduk!),
+          subtitle: Text(produk.hargaProduk.toString()),
+        ),
+      ),
+    );
+  }
+}
+
+```
 
 
 ## Detail Produk
-<img src="https://github.com/user-attachments/assets/ed900d3a-7c78-4f6c-a05c-cdb663023a0a" width="300">
+<img src="https://github.com/user-attachments/assets/ed900d3a-7c78-4f6c-a05c-cdb663023a0a" width="300"> <br>
+Setiap list produk di halaman Produk Page dapat di klik untuk melihat detail produk. Pada halaman detail produk juga terdapat action edit dan hapus produk. Tampilan ini didapatkan dari kode berikut:
+
+```
+Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Detail Produk Nadhifa'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              "Kode : ${widget.produk!.kodeProduk}",
+              style: const TextStyle(fontSize: 20.0),
+            ),
+            Text(
+              "Nama : ${widget.produk!.namaProduk}",
+              style: const TextStyle(fontSize: 18.0),
+            ),
+            Text(
+              "Harga : Rp. ${widget.produk!.hargaProduk.toString()}",
+              style: const TextStyle(fontSize: 18.0),
+            ),
+            _tombolHapusEdit()
+          ],
+        ),
+      ),
+    );
+  }
+```
 
 ## Ubah Produk
-<img src="https://github.com/user-attachments/assets/95574d5b-6f7d-416a-9cc7-aff4a6c3370c" width="300">
+a. Tampilan form ubah produk
+<img src="https://github.com/user-attachments/assets/95574d5b-6f7d-416a-9cc7-aff4a6c3370c" width="300"> <br>
+Button 'Edit' pada halaman detail produk akan mengarah ke halaman Produk Form. Pada halaman ini, user dapat mengubah kode produk, nama  produk, dan harga. Setelah selesai mengedit, user dapat meng-klik tombol 'ubah' yang ada agar perubahan tersimpan ke database. Halaman ubah produk ini didapatkan dari kode berikut:
+
+```
+// TOMBOL EDIT
+ Widget _tombolHapusEdit() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        //Tombol Edit
+        OutlinedButton(
+            child: const Text("EDIT"),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ProdukForm(
+                            produk: widget.produk!,
+                          )));
+            }),
+
+// FORM
+Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(judul)),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                _kodeProdukTextField(),
+                _namaProdukTextField(),
+                _hargaProdukTextField(),
+                _buttonSubmit()
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+// BUTTON UBAH
+ Widget _buttonSubmit() {
+    return OutlinedButton(
+        child: Text(tombolSubmit),
+        onPressed: () {
+          var validate = _formKey.currentState!.validate();
+          if (validate) {
+            if (!_isLoading) {
+              if (widget.produk != null) {
+                //kondisi update produk
+                ubah();
+              }
+```
+b. Hasil ubah produk
 <img src="https://github.com/user-attachments/assets/69aeaccb-45a3-4872-a50f-63cfe776fceb" width="300">
+Setelah tombol 'UBAH' di klik, dapat dilihat harga yang semula 200000 menjadi 2000000. Hal ini karena perubahan sudah tersimpan di database.
+
+```
+ubah() {
+    setState(() {
+      _isLoading = true;
+    });
+    Produk updateProduk = Produk(id: widget.produk!.id!);
+    updateProduk.kodeProduk = _kodeProdukTextboxController.text;
+    updateProduk.namaProduk = _namaProdukTextboxController.text;
+    // updateProduk.hargaProduk = int.parse(_hargaProdukTextboxController.text);
+    updateProduk.hargaProduk =
+        int.tryParse(_hargaProdukTextboxController.text) ?? 0;
+
+    ProdukBloc.updateProduk(produk: updateProduk).then((value) {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => const ProdukPage()));
+    }, onError: (error) {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) => const WarningDialog(
+                description: "Permintaan ubah data gagal, silahkan coba lagi",
+              ));
+    });
+    setState(() {
+      _isLoading = false;
+    });
+  }
+```
 
 ## Hapus Produk
-<img src="https://github.com/user-attachments/assets/89d6a85e-b4d3-4e0d-9671-61a4108b191e" width="300">
+<img src="https://github.com/user-attachments/assets/89d6a85e-b4d3-4e0d-9671-61a4108b191e" width="300"> <br>
+Button 'DELETE' pada halaman detail produk akan menampilkan pop up seperti pada gambar. Jika tombol 'YA' ditekan, maka produk tersebut akan terhapus dari database. Tampilan ini didapat dari kode berikut
+
+```
+ void confirmHapus() {
+    AlertDialog alertDialog = AlertDialog(
+      content: const Text("Yakin ingin menghapus data ini?"),
+      actions: [
+//tombol hapus
+        OutlinedButton(
+          child: const Text("Ya"),
+          onPressed: () {
+            ProdukBloc.deleteProduk(id: int.parse(widget.produk!.id!)).then(
+                (value) => {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ProdukPage()))
+                    }, onError: (error) {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => const WarningDialog(
+                        description: "Hapus gagal, silahkan coba lagi",
+                      ));
+            });
+          },
+        ),
+//tombol batal
+        OutlinedButton(
+          child: const Text("Batal"),
+          onPressed: () => Navigator.pop(context),
+        )
+      ],
+    );
+    showDialog(builder: (context) => alertDialog, context: context);
+  }
+}
+```
