@@ -13,7 +13,8 @@ Nadhifa Zahra Kurniawan
 <img src="https://github.com/user-attachments/assets/b69835b2-bab2-4a8e-9f7d-d24791aab2b8" width="300">
 
 ## Produk Page
-<img src="https://github.com/user-attachments/assets/21cfbd54-be82-4901-868b-726df58a1c81" width="300">
+<img src="https://github.com/user-attachments/assets/d9592233-2bca-4bf5-8cda-4ef0c80449b4" width="300">
+
 
 ## Tambah Produk
 <img src="https://github.com/user-attachments/assets/99c0f16d-9af9-4b1b-ac8f-61e8deacdda2" width="300">
@@ -30,5 +31,4 @@ Nadhifa Zahra Kurniawan
 <img src="https://github.com/user-attachments/assets/69aeaccb-45a3-4872-a50f-63cfe776fceb" width="300">
 
 ## Hapus Produk
-<img src="https://github.com/user-attachments/assets/b71744c0-3382-42c7-b672-f6d714c30415" width="300">
 <img src="https://github.com/user-attachments/assets/89d6a85e-b4d3-4e0d-9671-61a4108b191e" width="300">
