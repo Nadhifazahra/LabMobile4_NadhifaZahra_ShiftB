@@ -5,7 +5,7 @@ Nadhifa Zahra Kurniawan
 
 ## Registrasi Page
 
-**a. Tampilan Form Registrasi**  
+a. Tampilan Form Registrasi <br>
 <img src="https://github.com/user-attachments/assets/a30ca997-f006-4247-8c53-51f224ffc38e" width="300"> <img src="https://github.com/user-attachments/assets/836f897c-977b-4c61-accd-db261a6de3e1" width="300"><br>
 Sebelum melakukan login, pengguna harus melakukan registrasi terlebih dahulu. Tampilan registrasi didapat dari kode berikut:
 ```
@@ -36,7 +36,7 @@ Widget build(BuildContext context) {
   }
 ```
 
-**b. Registrasi Berhasil**  
+b. Registrasi Berhasil <br>
 <img src="https://github.com/user-attachments/assets/75173947-8799-43a4-b766-d1a45749bc67" width="300"><br>
 Jika registrasi berhasil, akan muncul pop-up seperti gambar di atas. Pop-up ini dihasilkan oleh kode berikut:  
 
@@ -280,7 +280,7 @@ Button + di halaman Produk Page akan mengarahkan ke halaman form tambah produk. 
   }
 ```
 
-b. Hasil tambah produk
+b. Hasil tambah produk <br>
 <img src="https://github.com/user-attachments/assets/c975049a-546e-4b84-b510-6ad731f3e445" width="300"><br>
 Button simpan di halaman tambah produk akan menyimpan nilai nilai yang sudah diinput oleh user ke database dan kemudian menampilkan halaman Produk Page dengan list produk yang sudah user tambahkan. Tampilan ini didapat dari kode berikut:
 
@@ -378,7 +378,7 @@ Widget build(BuildContext context) {
 ```
 
 ## Ubah Produk
-a. Tampilan form ubah produk
+a. Tampilan form ubah produk <br>
 <img src="https://github.com/user-attachments/assets/95574d5b-6f7d-416a-9cc7-aff4a6c3370c" width="300"> <br>
 Button 'Edit' pada halaman detail produk akan mengarah ke halaman Produk Form. Pada halaman ini, user dapat mengubah kode produk, nama  produk, dan harga. Setelah selesai mengedit, user dapat meng-klik tombol 'ubah' yang ada agar perubahan tersimpan ke database. Halaman ubah produk ini didapatkan dari kode berikut:
 
@@ -436,7 +436,7 @@ Widget build(BuildContext context) {
                 ubah();
               }
 ```
-b. Hasil ubah produk
+b. Hasil ubah produk <br>
 <img src="https://github.com/user-attachments/assets/69aeaccb-45a3-4872-a50f-63cfe776fceb" width="300">
 Setelah tombol 'UBAH' di klik, dapat dilihat harga yang semula 200000 menjadi 2000000. Hal ini karena perubahan sudah tersimpan di database.
 
@@ -505,3 +505,24 @@ Button 'DELETE' pada halaman detail produk akan menampilkan pop up seperti pada 
   }
 }
 ```
+
+## Logout
+<img src="https://github.com/user-attachments/assets/c7a2f06e-26f9-4425-97df-f066dec751bc" width="300"> <br>
+Menu logout akan membuat akun keluar dan kembali ke halaman login.
+
+```
+children: [
+            ListTile(
+              title: const Text('Logout'),
+              trailing: const Icon(Icons.logout),
+              onTap: () async {
+                await LogoutBloc.logout().then((value) => {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                          (route) => false)
+                    });
+              },
+            )
+          ],
+```
+
