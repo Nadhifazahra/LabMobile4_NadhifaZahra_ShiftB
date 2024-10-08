@@ -437,7 +437,7 @@ Widget build(BuildContext context) {
               }
 ```
 b. Hasil ubah produk <br>
-<img src="https://github.com/user-attachments/assets/69aeaccb-45a3-4872-a50f-63cfe776fceb" width="300">
+<img src="https://github.com/user-attachments/assets/69aeaccb-45a3-4872-a50f-63cfe776fceb" width="300"> <br>
 Setelah tombol 'UBAH' di klik, dapat dilihat harga yang semula 200000 menjadi 2000000. Hal ini karena perubahan sudah tersimpan di database.
 
 ```
