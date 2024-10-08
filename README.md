@@ -22,11 +22,9 @@ Nadhifa Zahra Kurniawan
 <img src="https://github.com/user-attachments/assets/c975049a-546e-4b84-b510-6ad731f3e445" width="300">
 
 ## Detail Produk
-<img src="https://github.com/user-attachments/assets/94504faf-b63b-4dcf-85dd-9be8593b8c6d" width="300">
 <img src="https://github.com/user-attachments/assets/ed900d3a-7c78-4f6c-a05c-cdb663023a0a" width="300">
 
 ## Ubah Produk
-<img src="https://github.com/user-attachments/assets/398ce167-ca4f-41cf-9a34-3b4c89af00af" width="300">
 <img src="https://github.com/user-attachments/assets/95574d5b-6f7d-416a-9cc7-aff4a6c3370c" width="300">
 <img src="https://github.com/user-attachments/assets/69aeaccb-45a3-4872-a50f-63cfe776fceb" width="300">
 
